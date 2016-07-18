@@ -7,7 +7,8 @@ Contributions are welcome! Feel free to open up a pull request or issue, and joi
 
 ## Installation
 
-`ember install ember-component-css`
+add `"ember-component-css": "hooroo/ember-component-css"` to `package.json`
+
 
 ## Usage
 
@@ -33,10 +34,23 @@ For example, given this `app/my-component/styles.scss` file:
 Your generated CSS output will look something like:
 
 ```css
-.__my-component__a34fba {
+
+.my-component {
   padding: 2px;
 }
-.__my-component__a34fba .urgent {
+.my-component- .urgent {
+  color: red;
+}
+```
+And given this `app/my-path/my-component/styles.css` file:
+
+```css
+.my-path__my-component {
+  padding: 2px;
+}
+
+.my-path__my-component- .urgent {
+
   color: red;
 }
 .__my-component__a34fba .urgent span {
@@ -50,7 +64,14 @@ A typical component invocation that looks like this:
 
 will generated markup like:
 
-`<div class="__my-component__a34fba"></div>`
+
+`<div class="my-component"></div>`
+
+### Route template styles
+
+As a point of difference than upstream ember-component-css, we can use it to style top level route templates as well.
+
+You will need to add the generated class to the template, since ember-component-css can't generate the classes automatically for layouts.
 
 ### Inclusion
 
