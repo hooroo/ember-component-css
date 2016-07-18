@@ -2,12 +2,10 @@
 
 An Ember CLI addon which allows you to specify a component-specific style sheet inside of component pod directories
 
-[The announcement from EmberConf 2015](https://youtu.be/T1zxaEKeq3E)
-[![CSS is hard - EmberConf 2015](http://f.cl.ly/items/1a3a3r1C1y0D060D3j3u/EmberConf%202015%20-%20CSS%20Is%20Hard%20-%20YouTube%202015-03-22%2018-33-41.jpg)](https://youtu.be/T1zxaEKeq3E)
-
 ## Installation
 
-`ember install ember-component-css`
+add `"ember-component-css": "hooroo/ember-component-css"` to `package.json`
+
 
 ## Usage
 
@@ -29,10 +27,21 @@ For example, given this `app/my-component/styles.css` file:
 Your generated CSS output will look something like:
 
 ```css
-.my-component-a34fba {
+.my-component {
   padding: 2px;
 }
-.my-component-a34fba .urgent {
+.my-component- .urgent {
+  color: red;
+}
+```
+And given this `app/my-path/my-component/styles.css` file:
+
+```css
+.my-path__my-component {
+  padding: 2px;
+}
+
+.my-path__my-component- .urgent {
   color: red;
 }
 ```
@@ -43,7 +52,13 @@ A typical component invocation that looks like this:
 
 will generated markup like:
 
-`<div class="my-component-a34fba"></div>`
+`<div class="my-component"></div>`
+
+### Route template styles
+
+As a point of difference than upstream ember-component-css, we can use it to style top level route templates as well.
+
+You will need to add the generated class to the template, since ember-component-css can't generate the classes automatically for layouts.
 
 ### With Preprocessors
 
