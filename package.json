@@ -19,7 +19,12 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each",
-    "prepublish": "./bin/install-test-addons.sh"
+    "prepublish": "./bin/install-test-addons.sh",
+    "test": "ember try:testall"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hooroo/ember-component-css.git"
   },
   "dependencies": {
     "broccoli-concat": "^3.0.5",
